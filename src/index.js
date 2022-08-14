@@ -41,7 +41,7 @@ function formatDate (timestamp) {
 
 
 
-function updateCurrent (response) {
+function updateCurrent(response) {
 console.log(response);
 
  
@@ -59,9 +59,25 @@ document.querySelector(".humidity-current").innerHTML = response.data.main.humid
 document.querySelector(".wind-current").innerHTML = Math.round(response.data.wind.speed);
 }
 
+function cityInput(event){
+    event.preventDefault();
+    console.log(event.value);
+    
+   // updateCurrent(city);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let city = document.querySelector("#city-name-input").value;
+    let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(`${apiUrl}`).then(updateCurrent);
+}
 
 
 let city = "Paris";
+
+document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
