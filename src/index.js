@@ -61,8 +61,7 @@ document.querySelector(".wind-current").innerHTML = Math.round(response.data.win
 
 
 
-
-let city = "Toronto";
+let city = "Paris";
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

@@ -4,6 +4,11 @@
     margin-top: 35px;
 }
 
+form{
+    padding-top: 10px;
+}
+
+
 .card {
 display: block;
 margin: 0 auto;
