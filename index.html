@@ -14,24 +14,36 @@
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <h1>Current Weather</h1>
-    <ul>
-      <li>Philadelphia</li>
-      <li>last updated: Sunday 1:22 PM</li>
-      <li>Clear Sky</li>
-    </ul>
-    <div>
-      <img
-        src="http://openweathermap.org/img/wn/10d@2x.png"
-        alt="weather-icon"
-      />
-      <span>67°C | °F</span>
-    </div>
-    <ul>
-      <li>Humidity: 62%</li>
-      <li>Wind: 4 km/h</li>
-    </ul>
+    <div class="container">
+      <div class="card">
+        <ul>
+          <li class="city-current">Philadelphia</li>
+          <li class="time-current">last updated: Sunday 1:22 PM</li>
+          <li class="description-current">Clear Sky</li>
+        </ul>
+        <div>
+          <img
+            src="http://openweathermap.org/img/wn/10d@2x.png"
+            alt="weather-icon"
+            class="icon-current"
+          />
+          <span class="temperature-current">67°C | °F</span>
+        </div>
+        <ul>
+          <li class="humidity-current">Humidity: 62%</li>
+          <li class="wind-current">Wind: 4 km/h</li>
+        </ul>
+      </div>
 
+      <footer>
+        <a
+          href="https://github.com/kerryoncoding/Vanilla_weather_project"
+          target="_blank"
+          >open-source</a
+        >
+        by Kerry Guarino
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
