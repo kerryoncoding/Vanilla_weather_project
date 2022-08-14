@@ -16,23 +16,31 @@
   <body>
     <div class="container">
       <div class="card">
-        <ul>
-          <li class="city-current">Philadelphia</li>
-          <li class="time-current">last updated: Sunday 1:22 PM</li>
-          <li class="description-current">Clear Sky</li>
-        </ul>
-        <div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
-            class="icon-current"
-          />
-          <span class="temperature-current">67°C | °F</span>
+        <div class="row">
+          <ul>
+            <li class="city-current">Philadelphia</li>
+            <li class="time-current">last updated: Sunday 1:22 PM</li>
+            <li class="description-current">Clear Sky</li>
+          </ul>
+          <div class="row">
+            <div class="col left-col">
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather-icon"
+                class="icon-current"
+              />
+              <span class="temperature-current"
+                >67<span class="units">°C | °F</span></span
+              >
+            </div>
+            <div class="col" id="right-side">
+              <ul>
+                <li class="humidity-current">Humidity: 62%</li>
+                <li class="wind-current">Wind: 4 km/h</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul>
-          <li class="humidity-current">Humidity: 62%</li>
-          <li class="wind-current">Wind: 4 km/h</li>
-        </ul>
       </div>
 
       <footer>

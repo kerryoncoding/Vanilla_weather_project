@@ -16,10 +16,30 @@ ul {
 
 }
 
+.icon-current{
+    height: 100px;
+}
+
+#right-side {
+   text-align: right;
+   padding-top: 20px;
+}
+
 .city-current  {
     font-size: 22px;
     font-weight: bold;
-    color:#203247;
+    color:#202124;
+}
+
+.temperature-current {
+    font-size: 48px;
+    color: #202124;
+}
+
+.units {
+    font-size: 16px;
+    position: relative;
+    bottom: 20px;
 }
 
 .time-current .description-current {
