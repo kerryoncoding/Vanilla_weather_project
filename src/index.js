@@ -42,21 +42,21 @@ function formatDate (timestamp) {
 
 
 function updateCurrent(response) {
-console.log(response);
+    console.log(response); 
+    document.querySelector(".city-current").innerHTML = response.data.name;
+    //citytime
+    document.querySelector(".time-current").innerHTML = formatDate(response.data.dt * 1000);
+    let dt = response.data.dt
+    console.log(dt);
+    document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
+    let iconCode = response.data.weather[0].icon;
+    document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`) 
+    document.querySelector(".temperature-current").innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(".humidity-current").innerHTML = response.data.main.humidity;
+    document.querySelector(".wind-current").innerHTML = Math.round(response.data.wind.speed);
 
- 
-document.querySelector(".city-current").innerHTML = response.data.name;
+        
 
-//citytime
-document.querySelector(".time-current").innerHTML = formatDate(response.data.dt * 1000);
-let dt = response.data.dt
-console.log(dt);
-
-document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
-//document.querySelector(".icon-current").innerHTML = response.data.weather[0].icon;
-document.querySelector(".temperature-current").innerHTML = Math.round(response.data.main.temp);
-document.querySelector(".humidity-current").innerHTML = response.data.main.humidity;
-document.querySelector(".wind-current").innerHTML = Math.round(response.data.wind.speed);
 }
 
 function cityInput(event){
@@ -73,6 +73,12 @@ function handleSubmit(event) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(updateCurrent);
 }
+
+
+
+
+//document.querySelector(".fahrenheit").addeEventListener("click", unitFahrenheit);
+
 
 
 let city = "Paris";

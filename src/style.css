@@ -8,6 +8,9 @@ form{
     padding-top: 10px;
 }
 
+.celsious, .fahrenheit {
+    text-decoration: none;
+}
 
 .card {
 display: block;
@@ -34,6 +37,7 @@ ul {
     font-size: 22px;
     font-weight: bold;
     color:#202124;
+    padding-top: 10px;
 }
 
 .temperature-current {
@@ -47,7 +51,7 @@ ul {
     bottom: 20px;
 }
 
-.time-current .description-current {
+.time-current, .description-current {
     font-size: 16px;
     color: #70757A;
 }
