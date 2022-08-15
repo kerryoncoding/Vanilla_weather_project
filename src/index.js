@@ -42,12 +42,10 @@ function formatDate (timestamp) {
 
 
 function updateCurrent(response) {
-    console.log(response); 
     document.querySelector(".city-current").innerHTML = response.data.name;
     //citytime
     document.querySelector(".time-current").innerHTML = formatDate(response.data.dt * 1000);
     let dt = response.data.dt
-    console.log(dt);
     document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
     let iconCode = response.data.weather[0].icon;
     document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
@@ -61,12 +59,6 @@ function updateCurrent(response) {
 
 }
 
-function cityInput(event){
-    event.preventDefault();
-    console.log(event.value);
-    
-   // updateCurrent(city);
-}
 
 function handleSubmit(event) {
     event.preventDefault();
