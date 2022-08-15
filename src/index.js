@@ -48,7 +48,7 @@ function updateCurrent(response) {
     let dt = response.data.dt
     document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
     let iconCode = response.data.weather[0].icon;
-    document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
+    document.querySelector(".icon-current").setAttribute("src", `https://openweathermap.org/img/wn/${iconCode}@2x.png`);
     
     celsiousTemperature = response.data.main.temp
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
