@@ -50,8 +50,10 @@ function updateCurrent(response) {
     console.log(dt);
     document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
     let iconCode = response.data.weather[0].icon;
-    document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`) 
-    document.querySelector(".temperature-current").innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
+    
+    celsiousTemperature = response.data.main.temp
+    document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
     document.querySelector(".humidity-current").innerHTML = response.data.main.humidity;
     document.querySelector(".wind-current").innerHTML = Math.round(response.data.wind.speed);
 
@@ -75,11 +77,19 @@ function handleSubmit(event) {
 }
 
 
+function unitsFahrenheit() {
+    document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+}
 
+function unitsCelsious() {
+    document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
+}
 
-//document.querySelector(".fahrenheit").addeEventListener("click", unitFahrenheit);
+document.querySelector(".fahrenheit").addEventListener("click", unitsFahrenheit);
 
+document.querySelector(".celsious").addEventListener("click", unitsCelsious);
 
+let celsiousTemperature = null;
 
 let city = "Paris";
 
