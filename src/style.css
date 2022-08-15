@@ -8,7 +8,7 @@ form{
     padding-top: 10px;
 }
 
-.celsious, .fahrenheit {
+#celsious, #fahrenheit {
     text-decoration: none;
 }
 
@@ -49,6 +49,12 @@ ul {
     font-size: 16px;
     position: relative;
     bottom: 20px;
+}
+
+.units .active {
+    font-weight: bold;
+    color: #202124;
+    cursor: default;
 }
 
 .time-current, .description-current {

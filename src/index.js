@@ -78,20 +78,24 @@ function handleSubmit(event) {
 
 
 function unitsFahrenheit() {
+    celsious.classList.remove("active");
+    fahrenheit.classList.add("active");
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
 }
 
 function unitsCelsious() {
+    celsious.classList.add("active");
+    fahrenheit.classList.remove("active");
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
 }
 
-document.querySelector(".fahrenheit").addEventListener("click", unitsFahrenheit);
+document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit);
 
-document.querySelector(".celsious").addEventListener("click", unitsCelsious);
+document.querySelector("#celsious").addEventListener("click", unitsCelsious);
 
 let celsiousTemperature = null;
 
-let city = "Paris";
+let city = "Philadelphia";
 
 document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
