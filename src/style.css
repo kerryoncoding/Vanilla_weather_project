@@ -62,6 +62,29 @@ ul {
     color: #70757A;
 }
 
+.card-future {
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+
+.day-future {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    top: 15px;
+}
+
+.temperature-future {
+    position: relative;
+    font-size: 14px;
+    bottom: 10px;
+}
+
+.high-future {
+    font-weight: bold;
+}
+
 footer {
     font-size: 16px;
     margin-top: 10px;
