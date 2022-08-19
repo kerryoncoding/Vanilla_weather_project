@@ -55,13 +55,15 @@ function updateCurrent(response) {
     document.querySelector(".humidity-current").innerHTML = response.data.main.humidity;
     document.querySelector(".wind-current").innerHTML = Math.round(response.data.wind.speed);
 
-        
-
 }
 
 
 function handleSubmit(event) {
     event.preventDefault();
+    //this  vvvvv fixes glitch of when you toggle to °F and then do another search the temperature is in C but says it is F
+    celsious.classList.add("active");
+    fahrenheit.classList.remove("active");
+    //  ^^^^^
     let city = document.querySelector("#city-name-input").value;
     let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
