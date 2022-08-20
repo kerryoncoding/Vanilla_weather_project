@@ -93,28 +93,27 @@ function unitsCelsious() {
 
 
 function displayForecast(response) {
-    console.log(response);
-    //let futureDay =  
+    console.log(response.data.daily);
+    let futureDates = response.data.daily
       
     let forecastElement = document.querySelector("#forecast");
      let forecastHTML = `<div class="row">`;
     
-     let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-    days.forEach(function(day) {
+    futureDates.forEach(function(futureDay) {
 
            forecastHTML = forecastHTML + `
                   <div class="col card-future">
-                <div class="day-future">${day}</div>
+                <div class="day-future">${futureDay.dt}</div>
                 <div>
                   <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    src="http://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png"
                     alt="weather-icon"
                     class="icon-future"
                   />
                 </div>
                 <div class="temperature-future">
-                  <span class="high-future">28° </span
-                  ><span class="low-future">| 22°</span>
+                  <span class="high-future">${Math.round(futureDay.temp.max)}° </span
+                  ><span class="low-future">| ${Math.round(futureDay.temp.min)}°</span>
                 </div>
               </div>`;
 
