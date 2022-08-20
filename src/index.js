@@ -41,8 +41,9 @@ function formatDate (timestamp) {
 
 
 function getForecast(coordinates) {
+    
     let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
-   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(displayForecast);
 }
 
@@ -51,7 +52,7 @@ function updateCurrent(response) {
     document.querySelector(".city-current").innerHTML = response.data.name;
     //citytime
     document.querySelector(".time-current").innerHTML = formatDate(response.data.dt * 1000);
-    let dt = response.data.dt
+    //let dt = response.data.dt
     document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
     let iconCode = response.data.weather[0].icon;
     document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
@@ -116,8 +117,8 @@ function displayForecast(response) {
                   />
                 </div>
                 <div class="temperature-future">
-                  <span class="high-future">${Math.round(futureDay.temp.max)}° </span
-                  ><span class="low-future">| ${Math.round(futureDay.temp.min)}°</span>
+                <span class="high-future">${Math.round(futureDay.temp.max)}° </span
+                ><span class="low-future">| ${Math.round(futureDay.temp.min)}°</span>                
                 </div>
               </div>`;
         }
@@ -140,6 +141,7 @@ let city = "Philadelphia";
 document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(`${apiUrl}`).then(updateCurrent);
 
