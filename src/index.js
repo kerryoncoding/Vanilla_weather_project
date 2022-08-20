@@ -103,11 +103,9 @@ function displayForecast(response) {
     let futureDates = response.data.daily
       
     let forecastElement = document.querySelector("#forecast");
-     let forecastHTML = `<div class="row">`;
-    
-    futureDates.forEach(function(futureDay) {
-             
-           forecastHTML = forecastHTML + `
+    let forecastHTML = `<div class="row">`;
+    futureDates.forEach(function(futureDay, index){
+        if (index < 5) {forecastHTML = forecastHTML + `
                   <div class="col card-future">
                 <div class="day-future">${formatDate(futureDay.dt)}</div>
                 <div>
@@ -122,12 +120,11 @@ function displayForecast(response) {
                   ><span class="low-future">| ${Math.round(futureDay.temp.min)}°</span>
                 </div>
               </div>`;
-
+        }
     })
 
 
     forecastHTML = forecastHTML + `</div>`
-
     forecastElement.innerHTML= forecastHTML;
 }
 
