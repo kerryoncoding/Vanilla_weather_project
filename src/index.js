@@ -91,6 +91,12 @@ function unitsCelsious() {
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
 }
 
+function formatDate(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let futureDayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return futureDayNames[day];
+}
 
 function displayForecast(response) {
     console.log(response.data.daily);
@@ -100,10 +106,10 @@ function displayForecast(response) {
      let forecastHTML = `<div class="row">`;
     
     futureDates.forEach(function(futureDay) {
-
+             
            forecastHTML = forecastHTML + `
                   <div class="col card-future">
-                <div class="day-future">${futureDay.dt}</div>
+                <div class="day-future">${formatDate(futureDay.dt)}</div>
                 <div>
                   <img
                     src="http://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png"
