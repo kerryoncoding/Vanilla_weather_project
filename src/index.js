@@ -83,6 +83,28 @@ function unitsCelsious() {
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
 }
 
+
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+    
+    forecastElement.innerHTML=`
+                  <div class="col card-future">
+                <div class="day-future">THU</div>
+                <div>
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="weather-icon"
+                    class="icon-future"
+                  />
+                </div>
+                <div class="temperature-future">
+                  <span class="high-future">28° </span
+                  ><span class="low-future">| 22°</span>
+                </div>
+              </div>`;
+}
+
+
 document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit);
 
 document.querySelector("#celsious").addEventListener("click", unitsCelsious);
@@ -97,5 +119,5 @@ let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(`${apiUrl}`).then(updateCurrent);
 
-
+displayForecast();
 
