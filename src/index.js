@@ -41,7 +41,6 @@ function formatDate (timestamp) {
 
 
 function getForecast(coordinates) {
-    
     let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(displayForecast);
@@ -52,7 +51,6 @@ function updateCurrent(response) {
     document.querySelector(".city-current").innerHTML = response.data.name;
     //citytime
     document.querySelector(".time-current").innerHTML = formatDate(response.data.dt * 1000);
-    //let dt = response.data.dt
     document.querySelector(".description-current").innerHTML = response.data.weather[0].description;
     let iconCode = response.data.weather[0].icon;
     document.querySelector(".icon-current").setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
@@ -83,7 +81,7 @@ function handleSubmit(event) {
 function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
-    document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
 }
 
 function unitsCelsious() {
@@ -92,23 +90,21 @@ function unitsCelsious() {
     document.querySelector(".temperature-current").innerHTML = Math.round(celsiousTemperature);
 }
 
-function formatDate(timestamp) {
-    let date = new Date(timestamp * 1000);
-    let day = date.getDay();
+function formatFutureDate(timestamp) {
+    let futureDate = new Date(timestamp * 1000);
+    let futureDay = futureDate.getDay();
     let futureDayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    return futureDayNames[day];
+    return futureDayNames[futureDay];
 }
 
 function displayForecast(response) {
-    console.log(response.data.daily);
     let futureDates = response.data.daily
-      
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
     futureDates.forEach(function(futureDay, index){
-        if (index < 5) {forecastHTML = forecastHTML + `
-                  <div class="col card-future">
-                <div class="day-future">${formatDate(futureDay.dt)}</div>
+        if (index < 5) {forecastHTML = forecastHTML + 
+            `<div class="col card-future">
+                <div class="day-future">${formatFutureDate(futureDay.dt)}</div>
                 <div>
                   <img
                     src="http://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png"
@@ -135,6 +131,7 @@ document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit)
 document.querySelector("#celsious").addEventListener("click", unitsCelsious);
 
 let celsiousTemperature = null;
+
 
 let city = "Philadelphia";
 

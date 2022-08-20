@@ -77,6 +77,12 @@ ul {
     top: 15px;
 }
 
+.icon-future {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 75px;
+}
+
 .temperature-future {
     position: relative;
     font-size: 14px;
