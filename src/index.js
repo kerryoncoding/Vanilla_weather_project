@@ -86,10 +86,14 @@ function unitsCelsious() {
 
 function displayForecast() {
     let forecastElement = document.querySelector("#forecast");
+     let forecastHTML = `<div class="row">`;
     
-    forecastElement.innerHTML=`
+     let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+    days.forEach(function(day) {
+
+           forecastHTML = forecastHTML + `
                   <div class="col card-future">
-                <div class="day-future">THU</div>
+                <div class="day-future">${day}</div>
                 <div>
                   <img
                     src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -102,6 +106,13 @@ function displayForecast() {
                   ><span class="low-future">| 22°</span>
                 </div>
               </div>`;
+
+    })
+
+
+    forecastHTML = forecastHTML + `</div>`
+
+    forecastElement.innerHTML= forecastHTML;
 }
 
 

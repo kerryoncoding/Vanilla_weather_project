@@ -66,6 +66,8 @@ ul {
     position: relative;
     text-align: center;
     top: 20px;
+    padding: 0;
+    margin-bottom: 15px;
 }
 
 .day-future {
